@@ -59,10 +59,10 @@ test('device mode watches the Cursor jsonl directory instead of skipping it as a
 });
 
 test('switching Cursor usage source changes the collector fingerprint', () => {
-  const account = configFingerprint('cursor', '2024-01-01', true, '');
-  const device = configFingerprint('cursor', '2024-01-01', true, '', 'device');
+  const account = configFingerprint('cursor', '2024-01-01', true, '', '', null, 'account');
+  const device = configFingerprint('cursor', '2024-01-01', true, '', '', null, 'device');
   assert.notEqual(account, device);
-  assert.equal(configFingerprint('cursor', '2024-01-01', true, '', 'account'), account);
+  assert.equal(configFingerprint('cursor', '2024-01-01', true, '', '', null, 'account'), account);
 });
 
 test('device mode collectUsageOnce reads the jsonl and skips tokscale cursor sync', async () => {
